@@ -57,7 +57,7 @@ void LivoxPointsPlugin::Load(gazebo::sensors::SensorPtr _parent, sdf::ElementPtr
     file_name = ros::package::getPath("livox_laser_simulation") + "/scan_mode/" + file_name;
     ROS_INFO_STREAM("load csv file name:" << file_name);
     if (!CsvReader::ReadCsvFile(file_name, datas)) {
-        ROS_INFO_STREAM("cannot get csv file!" << file_name << "will return !");
+        ROS_ERROR_STREAM("cannot get csv file:" << file_name << " will return !");
         return;
     }
     
