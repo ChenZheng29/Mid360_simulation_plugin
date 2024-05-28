@@ -17,6 +17,7 @@
 #include <ignition/math/Vector3.hh>
 #include <livox_laser_simulation/CustomMsg.h>
 #include <limits>
+#include <ros/package.h>
 #include "livox_laser_simulation/csv_reader.hpp"
 #include "livox_laser_simulation/livox_ode_multiray_shape.h"
 #include "livox_laser_simulation/livox_point_xyzrtl.h"
@@ -52,8 +53,8 @@ void LivoxPointsPlugin::Load(gazebo::sensors::SensorPtr _parent, sdf::ElementPtr
 
     std::string filePath(__FILE__);
     size_t found = filePath.find_last_of("/\\");
-    file_name = std::string(filePath.substr(0, found)) + "/../scan_mode/" + file_name;
-
+//    file_name = std::string(filePath.substr(0, found)) + "/../scan_mode/" + file_name;
+    file_name = ros::package::getPath("livox_laser_simulation") + "/scan_mode/" + file_name;
     ROS_INFO_STREAM("load csv file name:" << file_name);
     if (!CsvReader::ReadCsvFile(file_name, datas)) {
         ROS_INFO_STREAM("cannot get csv file!" << file_name << "will return !");
