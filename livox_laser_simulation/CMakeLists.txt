@@ -55,6 +55,6 @@ install(TARGETS ${PROJECT_NAME}
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
         LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 )
-install(DIRECTORY launch models worlds rviz meshes
+install(DIRECTORY launch models worlds rviz meshes scan_mode
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
